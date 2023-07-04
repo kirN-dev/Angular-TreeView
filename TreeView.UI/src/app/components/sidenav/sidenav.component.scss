@@ -91,7 +91,18 @@
       }
     }
 
-    .sidenav-nav-link :hover {
+    // .sidenav-nav-link :hover {
+    //   background-color: #fff;
+    //   color: #000;
+
+    //   .menu-collapse-icon {
+    //     color: #000;
+    //   }
+    // }
+  }
+
+  .sidenav-nav-item {
+    .sidenav-nav-link:hover {
       background-color: #fff;
       color: #000;
 
@@ -100,17 +111,6 @@
       }
     }
   }
-
-  //   .sidenav-nav-item {
-  //     .sidenav-nav-link:hover {
-  //       background-color: #fff;
-  //       color: #000;
-
-  //       .menu-collapse-icon {
-  //         color: #000;
-  //       }
-  //     }
-  //   }
 }
 
 .active {

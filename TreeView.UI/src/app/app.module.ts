@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +13,7 @@ import { CoupensComponent } from './components/coupens/coupens.component';
 import { PagesComponent } from './components/pages/pages.component';
 import { MediaComponent } from './components/media/media.component';
 import { SettingsComponent } from './components/settings/settings.component';
+import { SublevelMenuComponent } from './components/sidenav/sublevel-menu.component';
 
 @NgModule({
   declarations: [
@@ -25,8 +27,9 @@ import { SettingsComponent } from './components/settings/settings.component';
     PagesComponent,
     MediaComponent,
     SettingsComponent,
+    SublevelMenuComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

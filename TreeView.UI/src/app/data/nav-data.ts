@@ -10,6 +10,40 @@ export const navbarData: INavbarData[] = [
     routeLink: 'products',
     icon: 'far fa-box-open',
     label: 'Products',
+    items: [
+      {
+        routeLink: 'products/level1',
+        label: 'Level 1',
+        items: [
+          {
+            routeLink: 'products/level1.1',
+            label: 'Level 1.1',
+          },
+          {
+            routeLink: 'products/level1.2',
+            label: 'Level 1.2',
+            items: [
+              {
+                routeLink: 'products/level1.2.1',
+                label: 'Level 1.2.1',
+              },
+              {
+                routeLink: 'products/level1.2.2',
+                label: 'Level 1.2.2',
+              },
+            ],
+          },
+        ],
+      },
+      {
+        routeLink: 'products/level2',
+        label: 'Level 2',
+      },
+      {
+        routeLink: 'products/level3',
+        label: 'Level 3',
+      },
+    ],
   },
   {
     routeLink: 'statistics',
@@ -45,5 +79,15 @@ export const navbarData: INavbarData[] = [
     routeLink: 'settings',
     icon: 'far fa-cog',
     label: 'Settings',
+    items: [
+      {
+        routeLink: 'settings/profile',
+        label: 'Profile',
+      },
+      {
+        routeLink: 'settings/customize',
+        label: 'Customize',
+      },
+    ],
   },
 ];

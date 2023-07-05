@@ -12,8 +12,9 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
+import { Router } from '@angular/router';
 import { navbarData } from 'src/app/data/nav-data';
-import { INavbarData } from 'src/app/models/helper';
+import { INavbarData, fadeInOut } from 'src/app/models/helper';
 import { SideNavToggle } from 'src/app/models/side-nav-toggle';
 
 @Component({
@@ -21,16 +22,7 @@ import { SideNavToggle } from 'src/app/models/side-nav-toggle';
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.scss'],
   animations: [
-    trigger('fadeInOut', [
-      transition(':enter', [
-        style({ opacity: 0 }),
-        animate('150ms', style({ opacity: 1 })),
-      ]),
-      transition(':leave', [
-        style({ opacity: 1 }),
-        animate('150ms', style({ opacity: 0 })),
-      ]),
-    ]),
+    fadeInOut,
     trigger('rotate', [
       transition(':enter', [
         animate(
@@ -63,6 +55,8 @@ export class SidenavComponent implements OnInit {
     }
   }
 
+  constructor(private router: Router) {}
+
   ngOnInit(): void {
     this.screenWidth = window.innerWidth;
     if (this.screenWidth <= 768) {
@@ -91,6 +85,15 @@ export class SidenavComponent implements OnInit {
   }
 
   handleClick(item: INavbarData): void {
+    this.shrinkItem(item);
+    item.expanded = !item.expanded;
+  }
+
+  getActiveClass(data: INavbarData): string {
+    return this.router.url.includes(data.routeLink) ? 'active' : '';
+  }
+
+  shrinkItem(item: INavbarData): void {
     if (!this.multiple) {
       for (let modelItem of this.navData) {
         if (item !== modelItem && modelItem.expanded) {
@@ -98,6 +101,5 @@ export class SidenavComponent implements OnInit {
         }
       }
     }
-    item.expanded = !item.expanded;
   }
 }

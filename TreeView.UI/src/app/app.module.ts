@@ -14,6 +14,9 @@ import { SettingsComponent } from './components/settings/settings.component';
 import { SublevelMenuComponent } from './components/sidenav/sublevel-menu.component';
 import { HeaderComponent } from './components/header/header.component';
 
+import { OverlayModule } from '@angular/cdk/overlay';
+import { CdkMenuModule } from '@angular/cdk/menu';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +30,13 @@ import { HeaderComponent } from './components/header/header.component';
     SublevelMenuComponent,
     HeaderComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    OverlayModule,
+    CdkMenuModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

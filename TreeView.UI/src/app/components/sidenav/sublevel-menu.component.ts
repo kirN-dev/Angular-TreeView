@@ -20,16 +20,16 @@ import { INavbarData, fadeInOut } from 'src/app/models/helper';
               value: 'visible',
               params: {
                 transitionParams: '400ms cubic-bezier(0.86, 0, 0.07, 1)',
-				height: '*',
+				        height: '*',
               }
             }
           : {
-				value: 'hidden',
-		   		params: {
-					transitionParams: '400ms cubic-bezier(0.86, 0, 0.07, 1)',
-					height: '0'
-				}
-			}
+              value: 'hidden',
+                params: {
+                transitionParams: '400ms cubic-bezier(0.86, 0, 0.07, 1)',
+                height: '0'
+				      }
+			      }
       "
       class="sublevel-nav"
     >
@@ -37,10 +37,10 @@ import { INavbarData, fadeInOut } from 'src/app/models/helper';
         <a
           class="sublevel-nav-link"
           (click)="handleClick(item)"
-          *ngIf="item.items && item.items.length > 0"
           [ngClass]="getActiveClass(item)"
+          *ngIf="item.items && item.items.length > 0"
         >
-          <i class="sublevel-link-icon fa fa-circle"></i>
+          <i class="sublevel-link-icon"></i>
           <span class="sublevel-link-text" @fadeInOut *ngIf="collapsed">{{
             item.label
           }}</span>
@@ -48,7 +48,7 @@ import { INavbarData, fadeInOut } from 'src/app/models/helper';
             *ngIf="item.items && collapsed"
             class="menu-collapse-icon"
             [ngClass]="
-              !item.expanded ? 'fal fa-angle-right' : 'fal fa-angle-down'
+              !item.expanded ? 'fal fa-angle-left' : 'fal fa-angle-down'
             "
           ></i>
         </a>
@@ -59,7 +59,7 @@ import { INavbarData, fadeInOut } from 'src/app/models/helper';
           routerLinkActive="active-sublevel"
           [routerLinkActiveOptions]="{ exact: true }"
         >
-          <i class="sublevel-link-icon fa fa-circle"></i>
+          <i class="sublevel-link-icon"></i>
           <span class="sublevel-link-text" @fadeInOut *ngIf="collapsed">{{
             item.label
           }}</span>

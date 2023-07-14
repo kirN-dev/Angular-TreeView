@@ -42,6 +42,7 @@ export class SidenavComponent implements OnInit {
   screenWidth = 0;
   navData = navbarData;
   multiple = false;
+  active = "";
 
   @HostListener('window:resize', ['$event'])
   onResize(event: Event) {
@@ -90,6 +91,7 @@ export class SidenavComponent implements OnInit {
   }
 
   getActiveClass(data: INavbarData): string {
+
     return this.router.url.includes(data.routeLink) ? 'active' : '';
   }
 

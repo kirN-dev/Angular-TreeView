@@ -13,12 +13,15 @@
   </div>
   <div class="scrollwrap scrollwrap__delayed">
     <ul class="sidenav-nav">
-      <li class="sidenav-nav-item" *ngFor="let data of navData">
+      <li
+        class="sidenav-nav-item"
+        *ngFor="let data of navData"
+        [ngClass]="getActiveClass(data)"
+      >
         <a
           class="sidenav-nav-link"
           *ngIf="data.items && data.items.length > 0"
           (click)="handleClick(data)"
-          [ngClass]="getActiveClass(data)"
         >
           <i class="sidenav-link-icon" [class]="data.icon"></i>
           <span class="sidenav-link-text" @fadeInOut *ngIf="collapsed">{{
@@ -28,7 +31,7 @@
             class="menu-collapse-icon"
             *ngIf="data.items && collapsed"
             [ngClass]="
-              !data.expanded ? 'fal fa-angle-right' : 'fal fa-angle-down'
+              !data.expanded ? 'fal fa-angle-left' : 'fal fa-angle-down'
             "
           ></i>
         </a>
@@ -37,8 +40,6 @@
           class="sidenav-nav-link"
           *ngIf="!data.items || (data.items && data.items.length === 0)"
           [routerLink]="[data.routeLink]"
-          routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: true }"
           (click)="shrinkItem(data)"
         >
           <i class="sidenav-link-icon" [class]="data.icon"></i>
